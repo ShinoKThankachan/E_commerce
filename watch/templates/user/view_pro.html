@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .container {
+            margin-top: 5%;
+        }
+        s {
+            color: #585656;
+        }
+        h2, h3 {
+            font-weight: 700;
+        }
+        .col-lg-7 {
+            background-color: #f1f1f1d7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            background-color: orange;
+            border-radius: 5px;
+            color: white;
+            font-weight: 700;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+        .bt {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            color: orange;
+            background-color: white;
+            border: 2px solid orange;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+        }
+        .specifications, .reviews, .related-products {
+            margin-top: 30px;
+        }
+        .review-card {
+            margin-bottom: 15px;
+        }
+        .related-products img {
+            object-fit: cover;
+            height: 150px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .price s {
+            font-size: 1.2rem;
+            color: #888;
+        }
+        .price h3 {
+            font-size: 1.8rem;
+            color: green;
+        }
+        .product-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <h1>Welcome to Our Product Page</h1>
+            <p>Your one-stop shop for the best products</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Product Overview Section -->
+        <div class="row">
+            <div class="col-lg-5">
+                <img src="{{data.img.url}}" alt="Product Image" style="width: 100%; height: 500px; object-fit: contain; display: block; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <div class="bt">
+                    <a class="btn" href="../add_to_cart/{{data.pk}}">ADD TO CART</a>
+                    <a class="btn" href="../user_buy1/{{data.pk}}">BUY NOW</a>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <h2>{{data.name}}</h2>
+                <div class="price">
+                    <s>₹{{data.price}}</s>
+                    <h3>₹{{data.ofr_price}}</h3>
+                </div>
+                <p class="product-description">{{data.dis}}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
