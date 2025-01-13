@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+</head>
+<body>
+    <h1>My Orders</h1>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order.product.name }} - Quantity: {{ order.quantity }} - Status: {{ order.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

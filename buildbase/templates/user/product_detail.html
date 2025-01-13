@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} - Product Details</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <p>Price: ₹{{ product.price }}</p>
+    <p>Category: {{ product.category }}</p>
+    <p>Stock: {{ product.stock }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" required>
+        <button type="submit">Order</button>
+    </form>
+</body>
+</html>

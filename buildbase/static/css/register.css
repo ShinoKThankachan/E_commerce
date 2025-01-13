@@ -1,0 +1,98 @@
+/* General Reset */
+body, h1, label, input, button, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+  }
+  
+  /* Container */
+  form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Form Heading */
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* Labels and Inputs */
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  /* Validation Notes */
+  ul {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    color: #d9534f;
+    font-size: 0.9rem;
+  }
+  
+  ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Submit Button */
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Links */
+  p {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  p a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+  

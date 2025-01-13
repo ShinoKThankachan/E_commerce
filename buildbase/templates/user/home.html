@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Construction Materials</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header>
+        <h1>BuildBase Construction Materials</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'user_orders' %}">My Orders</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <div class="products">
+            {% for product in products %}
+                <div class="product">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    <h2>{{ product.name }}</h2>
+                    <p>₹{{ product.price }}</p>
+                    <a href="{% url 'product_detail' product.id %}">View Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
