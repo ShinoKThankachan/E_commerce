@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     {% load static %}
+    {% load custom_filters %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }} - Product Details</title>
-    <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/order_detail.css' %}">
 </head>
 <body>
     <header>
@@ -18,23 +19,18 @@
             <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
-    <div class="container">
-    <h1>{{ product.name }}</h1>
-    <p>{{ product.description }}</p>
-    <p>Price: ₹{{ product.price }}</p>
-    <p>Category: {{ product.category }}</p>
-    <p>Stock: {{ product.stock }}</p>
-    </div>
     <form method="post">
         {% csrf_token %}
-        <!-- <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" min="1" required>
-        <button type="submit">Buy now</button> -->
-        <a href="{% url 'order_product' product.id %}">
-            <button>Order This Product</button>
-        </a><br><br>
+    <div class="container">
+    <h1>Order Details</h1>
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Product:</strong> {{ order.product.name }}</p>
+    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
+    <p><strong>Total Price:</strong> ${{ order.product.price|multiply:order.quantity }}</p>
+    <p><strong>Ordered By:</strong> {{ order.user.username }}</p>
+    </div>
     
-    </form>
+</form>
     <footer class="footer">
         <div class="container">
             <div class="footer-section">
@@ -72,5 +68,6 @@
             <p>&copy; 2025 BuildBase. All rights reserved.</p>
         </div>
     </footer>
+
 </body>
 </html>
