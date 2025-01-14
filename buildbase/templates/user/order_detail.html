@@ -22,11 +22,11 @@
     <form method="post">
         {% csrf_token %}
     <div class="container">
-    <h1>Order Details</h1>
+    <h1>Order Details</h1><br><br>
     <p><strong>Order ID:</strong> {{ order.id }}</p>
     <p><strong>Product:</strong> {{ order.product.name }}</p>
     <p><strong>Quantity:</strong> {{ order.quantity }}</p>
-    <p><strong>Total Price:</strong> ${{ order.product.price|multiply:order.quantity }}</p>
+    <p><strong>Total Price:</strong> ₹{{ order.product.price|multiply:order.quantity }}</p>
     <p><strong>Ordered By:</strong> {{ order.user.username }}</p>
     </div>
     

@@ -17,14 +17,7 @@ nav a {
     text-decoration: none;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+  
 
 
 

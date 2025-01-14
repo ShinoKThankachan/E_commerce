@@ -21,3 +21,14 @@ class Order(models.Model):
 
     def __str__(self):
         return f"Order by {self.user.username} for {self.product.name}"
+
+
+def save(self, *args, **kwargs):
+        if self.pk is None:  
+            product = self.product
+            if product.stock_quantity >= self.quantity:
+                product.stock_quantity -= self.quantity
+                product.save()
+            else:
+                raise ValueError("Not enough stock available")
+        super().save(*args, **kwargs)
