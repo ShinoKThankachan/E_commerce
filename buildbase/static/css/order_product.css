@@ -26,13 +26,23 @@ nav a {
     justify-content: space-between;
 }
 
-
-
+button{
+    background-color: black;
+    color: white;
+    position: relative;
+    left: 50px;
+    
+}
+.a{
+    position: relative;
+    left: 30px;
+}
 .footer {
     background-color: #333;
     color: #fff;
     padding: 20px 0;
     font-size: 14px;
+    height: 500px;
 }
 
 .container {

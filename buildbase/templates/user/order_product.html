@@ -21,13 +21,15 @@
     <div class="container">
     <h1>Order {{ product.name }}</h1>
     <p><strong>Price:</strong> ₹{{ product.price }}</p>
+    <p><strong>Stock:</strong> {{ product.stock }}</p>
     </div>
 
     <form method="post">
         {% csrf_token %}
+        <div class="a">
         <label for="quantity">Quantity:</label>
         <input type="number" id="quantity" name="quantity" min="1" required>
-        <button type="submit">Order</button>
+        <button type="submit">Buy now</button></div><br><br><br><br><br><br>
     </form>
 
     <footer class="footer">

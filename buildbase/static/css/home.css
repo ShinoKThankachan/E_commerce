@@ -49,12 +49,6 @@ button {
 button:hover {
     background-color: #218838;
 }
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    font-size: 14px;
-}
 
 .container {
     max-width: 1200px;
@@ -64,6 +58,16 @@ button:hover {
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 14px;
+    height: 500px;
+}
+
 
 .footer-section {
     flex: 1;
