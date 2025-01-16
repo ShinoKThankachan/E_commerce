@@ -32,3 +32,26 @@ def save(self, *args, **kwargs):
             else:
                 raise ValueError("Not enough stock available")
         super().save(*args, **kwargs)
+
+
+class Cart(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Cart for {self.user.username}"
+
+    def get_total_price(self):
+        total = sum(item.get_total_price() for item in self.items.all())
+        return total
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, related_name='items', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    def __str__(self):
+        return f"{self.quantity} of {self.product.name}"
+
+    def get_total_price(self):
+        return self.product.price * self.quantity

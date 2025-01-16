@@ -1,129 +1,121 @@
-/* 
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-form {
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    width: 100%;
-    max-width: 350px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-}
-
-h1 {
-    text-align: center;
-    color: #333333;
-    margin-bottom: 20px;
-    font-size: 24px;
-}
-
-form p {
-    margin-bottom: 15px;
-}
-
-form input[type="text"],
-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    box-sizing: border-box;
-}
-
-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-} */
-
-/* General Reset */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f4f4f4;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #333;
-}
-
-/* Centered Login Box */
-.login-container {
-    width: 300px;
+    flex-direction: column;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    text-align: center;
 }
 
-/* Title */
-.login-container h2 {
+h1 {
+    color: #2c3e50;
     margin-bottom: 20px;
-    font-size: 24px;
-    color: #444;
+    font-size: 2rem;
+    font-weight: 600;
 }
 
-/* Input Fields */
-.login-container input[type="text"],
-.login-container input[type="password"] {
+/* Form Styles */
+form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+form p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #7f8c8d;
+}
+
+form button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #3498db;
+}
+
+/* Form Input Fields */
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-/* Button */
-.login-container button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus {
+    border-color: #2980b9;
+    outline: none;
 }
 
-.login-container button:hover {
-    background-color: #0056b3;
-}
-
-/* Register Link */
-.login-container a {
-    display: inline-block;
-    margin-top: 15px;
+/* Link Styles */
+p a {
+    color: #2980b9;
     text-decoration: none;
-    color: #007bff;
-    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-.login-container a:hover {
-    text-decoration: underline;
+p a:hover {
+    color: #3498db;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    form {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form button {
+        font-size: 1.1rem;
+    }
+
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="email"] {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
 

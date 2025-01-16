@@ -1,0 +1,86 @@
+<!-- view_cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="{% static 'css/view_cart.css' %}">
+</head>
+<body>
+<header>
+    <h1>BuildBase Construction Materials</h1>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'register' %}">Register</a>
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'user_orders' %}">My Orders</a>
+        <a href="{% url 'view_cart' %}">View cart</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+</header>
+<h1>Your Cart</h1>
+<div class="cart-box">
+{% if cart_items %}
+    <ul class="cart-items">
+        {% for item in cart_items %}
+            <li>
+                <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="100">
+                <h3>{{ item.product.name }}</h3>
+                <p>{{ item.product.description }}</p>
+                <p>Price: ${{ item.product.price }}</p>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Total: ₹{{ item.get_total_price }}</p>
+                <a href="{% url 'remove_from_cart' item.product.id %}"><button>Remove</button></a>
+                <form action="{% url 'update_quantity' item.product.id 1 %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                    <button type="submit">Update Quantity</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+    <h4>Total Price: ₹{{ total_price }}</h4>
+{% else %}
+    <p>Your cart is empty.</p>
+{% endif %}
+<footer class="footer">
+    <div class="container">
+        <div class="footer-section">
+            <h3>About BuildBase</h3>
+            <p>Your one-stop shop for all construction materials, ensuring quality and reliability for your projects.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>Phone: +1 234 567 890</li>
+                <li>Email: support@buildbase.com</li>
+                <li>Address: 123 BuildBase Ave, Construction City</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                <a href="#"><img src="{% static 'images/insta.png' %}" alt="Instagram"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 BuildBase. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

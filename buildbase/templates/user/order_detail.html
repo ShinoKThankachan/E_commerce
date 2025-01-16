@@ -12,16 +12,17 @@
     <header>
         <h1>BuildBase Construction Materials</h1>
         <nav>
-            <a href="/">Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'register' %}">Register</a>
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'user_orders' %}">My Orders</a>
+            <a href="{% url 'view_cart' %}">View cart</a>
             <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
     <form method="post">
         {% csrf_token %}
-    <div class="container">
+    <div class="main">
     <h1>Order Details</h1><br><br>
     <p><strong>Order ID:</strong> {{ order.id }}</p>
     <p><strong>Product:</strong> {{ order.product.name }}</p>
@@ -57,10 +58,9 @@
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                    <a href="#"><img src="{% static 'images/insta.png' %}" alt="Instagram"></a>
                 </div>
             </div>
         </div>

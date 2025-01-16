@@ -11,27 +11,37 @@
     <header>
         <h1>BuildBase Construction Materials</h1>
         <nav>
-            <a href="/">Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'register' %}">Register</a>
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'user_orders' %}">My Orders</a>
+            <a href="{% url 'view_cart' %}">View cart</a>
             <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
+    <div class="cart-box">
     <div class="container">
     <h1>{{ product.name }}</h1>
+    <p>{% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% else %}
+        <p>No image available.</p>
+    {% endif %}</p>
     <p>{{ product.description }}</p>
     <p>Price: ₹{{ product.price }}</p>
-    <p>Category: {{ product.category }}</p>
+    <p>Category: {{ product.category }}</p> 
     <p>Stock: {{ product.stock }}</p>
     </div>
     <form method="post">
         {% csrf_token %}
         <a href="{% url 'order_product' product.id %}">
-            <button>Order This Product</button>
-        </a><br><br><br><br><br><br>
-    
+            <button>Order This Product</button></a><br><br>
     </form>
+    <form action="{% url 'add_to_cart' product.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit" id="b1">Add to Cart</button><br><br><br><br><br><br>
+    </form>
+</div>
     <footer class="footer">
         <div class="container">
             <div class="footer-section">
@@ -58,10 +68,9 @@
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                    <a href="#"><img src="{% static 'images/insta.png' %}" alt="Instagram"></a>
                 </div>
             </div>
         </div>

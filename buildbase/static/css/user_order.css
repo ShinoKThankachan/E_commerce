@@ -2,54 +2,174 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    color: #333;
+    background-color: #f8f9fa;
 }
 
 header {
-    background-color: #333;
+    background-color: #343a40;
     color: white;
-    padding: 1rem;
+    padding: 20px;
     text-align: center;
 }
 
-nav a {
+header h1 {
+    margin: 0;
+    font-size: 2rem;
     color: white;
-    margin: 0 10px;
-    text-decoration: none;
 }
 
+header nav {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+}
 
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
 
+header nav a:hover {
+    text-decoration: underline;
+}
 
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+} */
+
+.order-status-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.order-summary {
+    margin-bottom: 20px;
+}
+
+.order-summary h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.order-summary p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.status-timeline {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.status-step {
+    text-align: center;
+    width: 20%;
+    position: relative;
+}
+
+.status-step p {
+    margin-top: 10px;
     font-size: 14px;
 }
 
-.container {
-    max-width: 1200px;
+.status-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #ccc;
+    color: white;
+    border-radius: 50%;
+    line-height: 40px;
+    font-size: 18px;
+    font-weight: bold;
     margin: 0 auto;
-    padding: 0 20px;
+    transition: background-color 0.3s;
+}
+
+.status-step.completed .status-circle {
+    background-color: #4CAF50; 
+}
+
+.status-step.current .status-circle {
+    background-color: #FF9800; 
+}
+
+.status-step:not(.completed):not(.current) .status-circle {
+    background-color: #ccc; 
+}
+
+.status-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    transition: background-color 0.3s;
+}
+
+
+.status-step.completed::after {
+    background-color: #4CAF50; 
+}
+
+.status-step.current::after {
+    background-color: #FF9800; 
+}
+
+.status-step:not(.completed):not(.current)::after {
+    background-color: #ccc; 
+}
+
+.status-step:last-child::after {
+    content: none;
+}
+
+
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    height: 400px;
+}
+
+footer .container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .footer-section {
     flex: 1;
-    margin: 10px;
     min-width: 200px;
 }
 
 .footer-section h3 {
-    font-size: 18px;
+    border-bottom: 2px solid #007bff;
+    display: inline-block;
     margin-bottom: 10px;
-    color: #ffcc00;
-}
-
-.footer-section p {
-    line-height: 1.6;
+    font-size: 1.2rem;
 }
 
 .footer-section ul {
@@ -58,39 +178,30 @@ nav a {
 }
 
 .footer-section ul li {
-    margin-bottom: 10px;
+    margin: 5px 0;
 }
 
 .footer-section ul li a {
-    color: #fff;
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 .footer-section ul li a:hover {
-    color: #ffcc00;
+    text-decoration: underline;
 }
 
 .social-icons a {
-    margin-right: 10px;
     display: inline-block;
+    margin: 0 5px;
+}
+
+.social-icons img {
     width: 24px;
     height: 24px;
 }
 
-.social-icons img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 .footer-bottom {
-    text-align: center;
     margin-top: 20px;
-    border-top: 1px solid #555;
-    padding-top: 10px;
-}
-
-.footer-bottom p {
-    margin: 0;
+    font-size: 0.9rem;
+    color: #bbb;
 }

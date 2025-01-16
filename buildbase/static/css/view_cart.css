@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background-color: #f8f9fa;
+    background-color: #c9c9c9;
 }
 
 header {
@@ -34,19 +34,50 @@ header nav a {
 header nav a:hover {
     text-decoration: underline;
 }
-
-.main{
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    
+h1{
+    text-align: center;
 }
+ul {
+    padding-left: 50px;
+}
+button{
+    background-color: rgb(3, 150, 3);
+    color: white;
+}
+h4{
+    padding-left: 50px;
+}
+.cart-box {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+ul.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 footer {
     background-color: #343a40;
     color: white;
     padding: 40px 20px;
     text-align: center;
     height: 400px;
+    
 }
 
 footer .container {
@@ -101,3 +132,5 @@ footer .container {
     font-size: 0.9rem;
     color: #bbb;
 }
+
+

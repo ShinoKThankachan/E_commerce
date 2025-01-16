@@ -11,17 +11,54 @@
     <header>
         <h1>BuildBase Construction Materials</h1>
         <nav>
-            <a href="/">Home</a>
+            <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'register' %}">Register</a>
             <a href="{% url 'login' %}">Login</a>
             <a href="{% url 'user_orders' %}">My Orders</a>
+            <a href="{% url 'view_cart' %}">View cart</a>
             <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
     <h1>My Orders</h1>
     <ul>
         {% for order in orders %}
-            <li>{{ order.product.name }} - Quantity: {{ order.quantity }} - Status: {{ order.status }}</li>
+            <li>{{ order.product.name }} - Quantity: {{ order.quantity }}
+              
+                
+                <div class="order-status-container">
+                    <h1>Order Status</h1>
+                
+                    <div class="order-summary">
+                        <h2>Order: #{{ order.id }}</h2>
+                        <p><strong>Status:</strong> In Transit</p>
+                        <p><strong>Expected Delivery:</strong> 30th Jan 2025</p>
+                    </div>
+                
+                    
+                    <div class="status-timeline">
+                        <div class="status-step completed">
+                            <div class="status-circle">1</div>
+                            <p>Order Placed</p>
+                        </div>
+                        <div class="status-step completed">
+                            <div class="status-circle">2</div>
+                            <p>Shipped</p>
+                        </div>
+                        <div class="status-step completed">
+                            <div class="status-circle">3</div>
+                            <p>Out for Delivery</p>
+                        </div>
+                        <div class="status-step current">
+                            <div class="status-circle">4</div>
+                            <p>In Transit</p>
+                        </div>
+                        <div class="status-step">
+                            <div class="status-circle">5</div>
+                            <p>Delivered</p>
+                        </div>
+                    </div>
+                </div>
+                </li>
         {% endfor %}
     </ul>
     <footer class="footer">
@@ -50,10 +87,9 @@
             <div class="footer-section">
                 <h3>Follow Us</h3>
                 <div class="social-icons">
-                    <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-                    <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
-                    <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
-                    <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+                    <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                    <a href="#"><img src="{% static 'images/insta.png' %}" alt="Instagram"></a>
                 </div>
             </div>
         </div>
