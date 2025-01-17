@@ -28,7 +28,6 @@
             <li>
                 <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" width="100">
                 <h3>{{ item.product.name }}</h3>
-                <p>{{ item.product.description }}</p>
                 <p>Price: ${{ item.product.price }}</p>
                 <p>Quantity: {{ item.quantity }}</p>
                 <p>Total: ₹{{ item.get_total_price }}</p>
@@ -38,14 +37,38 @@
                     <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
                     <button type="submit">Update Quantity</button>
                 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
             </li>
         {% endfor %}
     </ul>
 </div>
-    <h4>Total Price: ₹{{ total_price }}</h4>
+<div class="total">
+    <h2>Total Price: ₹{{ total_price }}</h2>
 {% else %}
     <p>Your cart is empty.</p>
 {% endif %}
+</div><br><br><br>
 <footer class="footer">
     <div class="container">
         <div class="footer-section">

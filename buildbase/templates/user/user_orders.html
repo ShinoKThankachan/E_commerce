@@ -22,7 +22,7 @@
     <h1>My Orders</h1>
     <ul>
         {% for order in orders %}
-            <li>{{ order.product.name }} - Quantity: {{ order.quantity }}
+            <li> 
               
                 
                 <div class="order-status-container">
@@ -30,6 +30,8 @@
                 
                     <div class="order-summary">
                         <h2>Order: #{{ order.id }}</h2>
+                        <h3>{{ order.product.name }}</h3>
+                        <h5>Quantity: {{ order.quantity }}</h5>
                         <p><strong>Status:</strong> In Transit</p>
                         <p><strong>Expected Delivery:</strong> 30th Jan 2025</p>
                     </div>

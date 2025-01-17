@@ -41,35 +41,194 @@ ul {
     padding-left: 50px;
 }
 button{
-    background-color: rgb(3, 150, 3);
-    color: white;
+    background-color: #2874f0;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
-h4{
-    padding-left: 50px;
-}
-.cart-box {
-    padding: 20px;
-    background-color: #ffffff;
+.total{
+    background-color: white;
+    margin-left: 250px;
+    margin-right: 500px;
+    height: 80px;
+    display: flex;
+    align-items: center;
     border-radius: 8px;
+}
+h2{
+    padding-left: 50px;
+    
+}
+/* Cart Container */
+.cart-box {
+    width: 90%;
+    margin: 30px auto;
+    padding-left: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left Section: Cart Items */
+.cart-items {
+    width: 65%;
+    background: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-ul.cart-items {
+    border-radius: 8px;
+    padding: 20px;
     list-style: none;
-    padding: 0;
+    margin: 0;
 }
 
-.cart-item {
+.cart-items li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 20px 0;
+}
+
+.cart-items li:last-child {
+    border-bottom: none;
+}
+
+.cart-items li img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.cart-items li .details {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.cart-items li h3 {
+    font-size: 18px;
+    color: #333;
+    margin: 0 0 10px;
+    font-weight: bold;
+}
+
+.cart-items li p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.cart-items li .remove-button {
+    background-color: #ff5722;
+    border: none;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-items li .remove-button:hover {
+    background-color: #e64a19;
+}
+
+/* Quantity Update */
+.cart-items li form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-items li form input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.cart-items li form button {
+    background-color: #2874f0;
+    border: none;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cart-items li form button:hover {
+    background-color: #0056b3;
+}
+
+/* Right Section: Price Details */
+.price-details {
+    width: 30%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.price-details h4 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.price-details p {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.price-details p span {
+    font-weight: bold;
+    color: #333;
+}
+
+.price-details .total {
+    font-size: 18px;
+    color: #2874f0;
+    margin-top: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-details .place-order {
+    width: 100%;
+    background-color: #fdd835;
+    border: none;
+    color: #333;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.price-details .place-order:hover {
+    background-color: #fbc02d;
+}
+
 
 footer {
     background-color: #343a40;
