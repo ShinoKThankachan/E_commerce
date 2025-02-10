@@ -34,32 +34,72 @@ header nav a {
 header nav a:hover {
     text-decoration: underline;
 }
-.cart-box {
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: auto;
+    padding: 20px;
 }
 
-button{
-    background-color: rgb(7, 145, 30);
-    color: white;
-    position: relative;
-    left: 350px;
-    top: 50px;
+
+.cart-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
 }
-#b1{
-    background-color: rgb(175, 117, 10);
-    color: white;
+
+.cart-box h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 10px;
 }
+
+.cart-box img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.cart-box p {
+    font-size: 16px;
+    color: #555;
+    margin: 10px 0;
+}
+
+
+button {
+    background: #2874f0;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-box {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .cart-box h1 {
+        font-size: 24px;
+    }
+    button {
+        width: 100%;
+    }
+}
+
 
 footer {
     background-color: #343a40;

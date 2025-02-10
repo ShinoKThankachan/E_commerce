@@ -35,12 +35,53 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-.main{
+
+
+.container {
     max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    
+    margin: auto;
+    padding: 20px;
 }
+
+
+.main {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 50px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.main h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.main p {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0;
+}
+
+strong {
+    color: #222;
+}
+
+
+@media screen and (max-width: 768px) {
+    .main {
+        max-width: 90%;
+        padding: 20px;
+    }
+    .main h1 {
+        font-size: 24px;
+    }
+}
+
+
 footer {
     background-color: #343a40;
     color: white;
