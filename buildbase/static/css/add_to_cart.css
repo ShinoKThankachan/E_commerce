@@ -1,10 +1,10 @@
-/* General Styling */
+/* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f8f9fa;
     color: #333;
-    background-color: #f4f4f4;
 }
 
 header {
@@ -34,105 +34,70 @@ header nav a:hover {
     color: #00bfff;
     transform: scale(1.1);
 }
-
-/* Main Content */
-.container {
-    max-width: 1200px;
-    margin: 80px auto 20px;
-    padding: 20px;
-}
-
-.main {
+/* Cart Form */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    text-align: center;
-    animation: fadeIn 0.5s ease-in-out;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.main h1 {
-    font-size: 30px;
-    color: #1d3557;
-    margin-bottom: 15px;
-}
-
-.main img {
-    max-width: 100%;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.main img:hover {
-    transform: scale(1.05);
-}
-
-/* Quantity Box */
 .quantity-container {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    font-size: 20px;
-    margin-top: 20px;
+    gap: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .quantity-box {
     display: flex;
     align-items: center;
-    border: 2px solid #1d3557;
-    padding: 8px 15px;
-    border-radius: 8px;
-    gap: 15px;
-    background: #f8f9fa;
-    transition: box-shadow 0.3s;
-}
-
-.quantity-box:hover {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .quantity-box button {
+    padding: 8px 12px;
     border: none;
-    background: #457b9d;
+    background: #007bff;
     color: white;
-    font-size: 20px;
     cursor: pointer;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
+    font-size: 18px;
     transition: 0.3s;
 }
 
-.quantity-box button:hover {
-    background: #1d3557;
-}
-
 .quantity-box button:disabled {
-    background: grey;
+    background: #ccc;
     cursor: not-allowed;
 }
 
 .quantity-box span {
-    font-size: 18px;
-    font-weight: bold;
+    padding: 8px 15px;
+    background: #fff;
 }
 
-/* Add Button */
 .add-btn {
+    margin-top: 10px;
     padding: 12px 20px;
-    border: 2px solid #1d3557;
+    background: #28a745;
     color: white;
-    font-weight: bold;
+    border: none;
     cursor: pointer;
-    border-radius: 8px;
-    background: #1d3557;
+    font-size: 18px;
+    border-radius: 5px;
     transition: 0.3s;
 }
 
 .add-btn:hover {
-    background: white;
-    color: #1d3557;
+    background: #218838;
 }
 
 footer {
@@ -205,23 +170,21 @@ footer .container {
     color: #bbb;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media screen and (max-width: 768px) {
-    header nav {
+/* Responsive Design */
+@media (max-width: 600px) {
+    header {
         flex-direction: column;
+        text-align: center;
     }
-    .container {
-        max-width: 95%;
+    
+    nav {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
     }
-    .main {
-        padding: 20px;
-    }
-    .add-btn, .quantity-box button {
-        width: 100%;
+    
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
     }
 }

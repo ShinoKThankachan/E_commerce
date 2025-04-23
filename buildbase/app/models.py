@@ -12,12 +12,27 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+class BillingAddress(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='billing_addresses')
+    full_name = models.CharField(max_length=100)
+    address_line = models.CharField(max_length=255)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    postal_code = models.CharField(max_length=20)
+    country = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.full_name}, {self.address_line}, {self.city}"
+
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     ordered_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=100, default="Pending")
+    billing_address = models.ForeignKey(BillingAddress, on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return f"Order by {self.user.username} for {self.product.name}"
@@ -55,3 +70,5 @@ class CartItem(models.Model):
 
     def get_total_price(self):
         return self.product.price * self.quantity
+    
+

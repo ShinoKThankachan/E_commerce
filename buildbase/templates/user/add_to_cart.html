@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add to Cart</title>
+    <link rel="stylesheet" href="{% static 'css/add_to_cart.css' %}">
+
+</head>
+<body>
+    <header>
+        <h1>BuildBase Construction Materials</h1>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'user_orders' %}">My Orders</a>
+            <a href="{% url 'view_cart' %}">Cart</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        </nav>
+    </header>
+    <h1>Add {{ product.name }} to Cart</h1>
+
+
+    <form method="post" action="{% url 'add_to_cart' product.id %}">
+        {% csrf_token %}
+        <div class="quantity-container">
+            <div class="product-image">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                {% else %}
+                    <p>No image available.</p>
+                {% endif %}
+            </div>
+            <span>₹<span id="total-price">{{ product.price }}</span></span>
+            <div class="quantity-box">
+                <button type="button" id="decrease" disabled>-</button>
+                <span id="quantity">1</span>
+                <button type="button" id="increase">+</button>
+            </div>
+            <input type="hidden" name="quantity" id="hidden-quantity" value="1">
+            <button type="submit" class="add-btn">ADD</button>
+        </div>
+    </form>
+
+    <a href="{% url 'home' %}">Continue Shopping</a><br><br><br><br><br><br>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>About BuildBase</h3>
+                <p>Your one-stop shop for all construction materials, ensuring quality and reliability for your projects.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>Phone: +1 234 567 890</li>
+                    <li>Email: support@buildbase.com</li>
+                    <li>Address: 123 BuildBase Ave, Construction City</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="{% static 'images/facebook.png' %}" alt="Facebook"></a>
+                    <a href="#"><img src="{% static 'images/twitter.png' %}" alt="Twitter"></a>
+                    <a href="#"><img src="{% static 'images/insta.png' %}" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 BuildBase. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let quantity = 1;
+        let unitPrice = parseFloat(document.getElementById("total-price").textContent); // Get product price correctly
+        const quantitySpan = document.getElementById("quantity");
+        const totalPriceSpan = document.getElementById("total-price");
+        const decreaseBtn = document.getElementById("decrease");
+        const increaseBtn = document.getElementById("increase");
+        const hiddenQuantityInput = document.getElementById("hidden-quantity");
+    
+        function updateTotalPrice() {
+            totalPriceSpan.textContent = (quantity * unitPrice).toFixed(2);
+            hiddenQuantityInput.value = quantity;
+        }
+    
+        increaseBtn.addEventListener("click", () => {
+            quantity++;
+            quantitySpan.textContent = quantity;
+            decreaseBtn.disabled = false; // Enable the decrease button
+            updateTotalPrice();
+        });
+    
+        decreaseBtn.addEventListener("click", () => {
+            if (quantity > 1) {
+                quantity--;
+                quantitySpan.textContent = quantity;
+                updateTotalPrice();
+            }
+            if (quantity === 1) {
+                decreaseBtn.disabled = true; // Disable the decrease button at 1
+            }
+        });
+    
+    </script>
+    
+</body>
+</html>

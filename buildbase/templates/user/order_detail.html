@@ -23,12 +23,24 @@
     <form method="post">
         {% csrf_token %}
     <div class="main">
-    <h1>Order Details</h1><br><br>
-    <p><strong>Order ID:</strong> {{ order.id }}</p>
-    <p><strong>Product:</strong> {{ order.product.name }}</p>
-    <p><strong>Quantity:</strong> {{ order.quantity }}</p>
-    <p><strong>Total Price:</strong> ₹{{ order.product.price|multiply:order.quantity }}</p>
-    <p><strong>Ordered By:</strong> {{ order.user.username }}</p>
+        <h3>Order Details</h3>
+        <p>Product: {{ order.product.name }}</p>
+        <p>Quantity: {{ order.quantity }}</p>
+        <p>Status: {{ order.status }}</p>
+        
+        <h3>Billing Address</h3>
+        {% if order.billing_address %}
+            <p><strong>Name :</strong>{{ order.billing_address.full_name }}</p>
+            <p><strong>Address :</strong>{{ order.billing_address.address_line }}</p>
+            <p><strong>City :</strong>{{ order.billing_address.city }}</p>
+            <p><strong>State :</strong>{{ order.billing_address.state }}</p>
+            <p><strong>Postal code :</strong>{{ order.billing_address.postal_code }}</p>
+            <p><strong>country :</strong>{{ order.billing_address.country }}</p>
+            <p><strong>Phone :</strong> {{ order.billing_address.phone_number }}</p>
+        {% else %}
+            <p>No billing address selected.</p>
+        {% endif %}
+        
     </div><br><br><br><br>
     
 </form>

@@ -4,12 +4,10 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }} - Product Details | BuildBase</title>
-    <link rel="stylesheet" href="{% static 'css/product_details.css' %}">
+    <title>Order Summary</title>
+    <link rel="stylesheet" href="{% static 'css/order_summary.css' %}">
 </head>
 <body>
-
-    <!-- Header -->
     <header>
         <h1>BuildBase Construction Materials</h1>
         <nav>
@@ -21,48 +19,19 @@
             <a href="{% url 'logout' %}">Logout</a>
         </nav>
     </header>
-
-    <!-- Product Details -->
-    <div class="product-container">
-        <div class="product-image">
-            {% if product.image %}
-                <img src="{{ product.image.url }}" alt="{{ product.name }}">
-            {% else %}
-                <p>No image available.</p>
-            {% endif %}
-        </div>
-        <div class="product-info">
-            <h1>{{ product.name }}</h1>
-            <p class="price">Price: ₹{{ product.price }}</p>
-            <p class="category">Category: {{ product.category }}</p>
-            <p class="stock">Stock: <strong>{{ product.stock }}</strong></p>
-            <p class="description">{{ product.description }}</p>
-            <div class="buttons">
-                <a href="{% url 'order_product' product.id %}" class="btn order">Order Now</a>
-                <form action="{% url 'add_to_cart' product.id %}" method="POST">
-                    {% csrf_token %}
-                    <button type="submit" class="btn add-to-cart">Add to Cart</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Additional Information -->
-    <div class="product-extra-info">
-        <h2>Product Information</h2>
-        <div class="info-box">
-            <h3>Quality Assurance</h3>
-            <p>All our products go through a rigorous quality check to ensure the best materials for your construction needs.</p>
-        </div>
-        <div class="info-box">
-            <h3>Delivery & Shipping</h3>
-            <p>We offer nationwide delivery with fast and reliable shipping options.</p>
-        </div>
-        <div class="info-box">
-            <h3>Return & Refund Policy</h3>
-            <p>Returns accepted within 15 days of purchase. See our refund policy for details.</p>
-        </div>
-    </div>
+    <h1>Your Orders</h1>
+    {% if orders %}
+        <ul>
+            {% for order in orders %}
+                <li>
+                    <strong>{{ order.product.name }}</strong> - Quantity: {{ order.quantity }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+    <a href="{% url 'home' %}">Continue Shopping</a>
 
     <footer class="footer">
         <div class="container">
@@ -100,6 +69,5 @@
             <p>&copy; 2025 BuildBase. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>
