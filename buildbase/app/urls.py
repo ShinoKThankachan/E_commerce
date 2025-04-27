@@ -12,6 +12,9 @@ urlpatterns = [
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),
     path('register/', views.register, name='register'),
     path('login/', views.login_view, name='login'),
+    path('forgot-password/', views.forgot_password_view, name='forgot_password'),
+    path('verify-otp/', views.verify_otp, name='verify_otp'),
+    path('reset-password/', views.reset_password, name='reset_password'),
     path('logout/', views.logout_view, name='logout'),
     path('order/detail/<int:order_id>/', views.order_detail, name='order_detail'),
     path('user/orders/', views.user_orders, name='user_orders'),
@@ -27,5 +30,8 @@ urlpatterns = [
     path('choose-billing-address/<int:product_id>/', views.choose_billing_address, name='choose_billing_address_with_product'),
     path('finalize-order/<int:product_id>/', views.finalize_order_product, name='finalize_order_product'),
     path('order/detail/<int:order_id>/', views.order_detail, name='order_detail'),
+    path('start_payment/<int:product_id>/', views.start_payment, name='start_payment'),
+    path('payment_success/', views.payment_success, name='payment_success'),
+    path('choose-billing-address/<int:product_id>/', views.choose_billing_address, name='choose_billing_address'),
     
 ]

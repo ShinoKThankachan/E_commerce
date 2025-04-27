@@ -1,4 +1,3 @@
-/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -17,15 +16,16 @@
     padding: 20px;
   }
   
-  h1 {
+  h2 {
     color: #2c3e50;
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: 600;
+    text-align: center;
   }
   
-  /* Login Container */
-  .login-container {
+  /* Reset Password Form Styling */
+  form {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -36,13 +36,8 @@
     margin-top: 20px;
   }
   
-  /* Login Form */
-  .login-form {
-    width: 100%;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
+  /* Form Input Fields */
+  form input[type="password"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -52,13 +47,13 @@
     transition: border-color 0.3s ease;
   }
   
-  .login-form input[type="text"]:focus,
-  .login-form input[type="password"]:focus {
+  form input[type="password"]:focus {
     border-color: #2980b9;
     outline: none;
   }
   
-  .login-form input[type="submit"] {
+  /* Submit Button */
+  form button[type="submit"] {
     background-color: #2980b9;
     color: white;
     border: none;
@@ -70,43 +65,8 @@
     transition: background-color 0.3s ease;
   }
   
-  .login-form input[type="submit"]:hover {
+  form button[type="submit"]:hover {
     background-color: #3498db;
-  }
-  
-  /* Extra Links and Information */
-  .login-extra p,
-  .login-links p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  
-  .login-extra a,
-  .login-links a {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .login-extra a:hover,
-  .login-links a:hover {
-    color: #3498db;
-  }
-  
-  /* Message Container */
-  .message-container {
-    margin-top: 20px;
-    background-color: #f39c12;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .message {
-    font-size: 1rem;
-    font-weight: bold;
   }
   
   /* Responsive Styles */
@@ -115,25 +75,19 @@
       padding: 10px;
     }
   
-    .login-container {
+    form {
       padding: 20px;
       max-width: 90%;
     }
   
-    h1 {
+    h2 {
       font-size: 1.8rem;
     }
   
-    .login-form input[type="text"],
-    .login-form input[type="password"],
-    .login-form input[type="submit"] {
+    form input[type="password"],
+    form button[type="submit"] {
       padding: 10px;
       font-size: 1rem;
-    }
-  
-    .login-extra p,
-    .login-links p {
-      font-size: 0.85rem;
     }
   }
   

@@ -17,15 +17,16 @@
     padding: 20px;
   }
   
-  h1 {
+  h2 {
     color: #2c3e50;
     margin-bottom: 20px;
     font-size: 2rem;
     font-weight: 600;
+    text-align: center;
   }
   
-  /* Login Container */
-  .login-container {
+  /* Forgot Password Form Styling */
+  .forgot-container {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
@@ -36,13 +37,8 @@
     margin-top: 20px;
   }
   
-  /* Login Form */
-  .login-form {
-    width: 100%;
-  }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
+  /* Form Input Fields */
+  .forgot-container input[type="email"] {
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
@@ -52,13 +48,13 @@
     transition: border-color 0.3s ease;
   }
   
-  .login-form input[type="text"]:focus,
-  .login-form input[type="password"]:focus {
+  .forgot-container input[type="email"]:focus {
     border-color: #2980b9;
     outline: none;
   }
   
-  .login-form input[type="submit"] {
+  /* Submit Button */
+  .forgot-container input[type="submit"] {
     background-color: #2980b9;
     color: white;
     border: none;
@@ -70,43 +66,37 @@
     transition: background-color 0.3s ease;
   }
   
-  .login-form input[type="submit"]:hover {
+  .forgot-container input[type="submit"]:hover {
     background-color: #3498db;
   }
   
-  /* Extra Links and Information */
-  .login-extra p,
-  .login-links p {
-    font-size: 0.9rem;
+  /* Link Styles */
+  .forgot-container p {
     text-align: center;
+    margin-top: 20px;
   }
   
-  .login-extra a,
-  .login-links a {
+  .forgot-container p a {
     color: #2980b9;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
   }
   
-  .login-extra a:hover,
-  .login-links a:hover {
+  .forgot-container p a:hover {
     color: #3498db;
   }
   
-  /* Message Container */
+  /* Message Styling */
   .message-container {
     margin-top: 20px;
-    background-color: #f39c12;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
     text-align: center;
+    color: #e74c3c;
   }
   
   .message {
     font-size: 1rem;
-    font-weight: bold;
+    margin-bottom: 10px;
   }
   
   /* Responsive Styles */
@@ -115,25 +105,19 @@
       padding: 10px;
     }
   
-    .login-container {
+    .forgot-container {
       padding: 20px;
       max-width: 90%;
     }
   
-    h1 {
+    h2 {
       font-size: 1.8rem;
     }
   
-    .login-form input[type="text"],
-    .login-form input[type="password"],
-    .login-form input[type="submit"] {
+    .forgot-container input[type="email"],
+    .forgot-container input[type="submit"] {
       padding: 10px;
       font-size: 1rem;
-    }
-  
-    .login-extra p,
-    .login-links p {
-      font-size: 0.85rem;
     }
   }
   

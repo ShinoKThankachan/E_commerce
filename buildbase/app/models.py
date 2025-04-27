@@ -30,12 +30,20 @@ class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+    amount = models.IntegerField(default=0)  # Default amount = 0
     ordered_at = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=100, default="Pending")
     billing_address = models.ForeignKey(BillingAddress, on_delete=models.SET_NULL, null=True, blank=True)
 
+    # Razorpay fields
+    razorpay_order_id = models.CharField(max_length=100, blank=True, null=True)
+    razorpay_payment_id = models.CharField(max_length=100, blank=True, null=True)
+    razorpay_signature = models.CharField(max_length=255, blank=True, null=True)
+
     def __str__(self):
         return f"Order by {self.user.username} for {self.product.name}"
+
+
 
 
 def save(self, *args, **kwargs):

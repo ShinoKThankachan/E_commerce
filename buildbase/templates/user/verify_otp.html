@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="{% static 'css/verify_otp.css' %}">
+
+</head>
+<body>
+    <h2>Enter OTP</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="otp" placeholder="Enter OTP" required>
+        <input type="submit" value="Verify OTP">
+    </form>
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</body>
+</html>
