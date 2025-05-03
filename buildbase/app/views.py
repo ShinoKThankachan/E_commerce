@@ -18,6 +18,11 @@ from django.views.decorators.csrf import csrf_exempt
 from datetime import datetime, timedelta
 from django.utils import timezone
 
+
+def home(request):
+    products = Product.objects.all()
+    return render(request, 'user/home.html', {'products': products})
+
 @login_required
 def admin_home(request):
     if not request.user.is_superuser:
@@ -25,9 +30,6 @@ def admin_home(request):
     products = Product.objects.all()
     return render(request, 'admin/admin_home.html', {'products': products})
 
-def home(request):
-    products = Product.objects.all()
-    return render(request, 'user/home.html', {'products': products})
 
 def product_detail(request, product_id):
     product = Product.objects.get(id=product_id)

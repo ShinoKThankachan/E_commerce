@@ -1,139 +1,140 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    padding: 20px;
-  }
-  
-  h1 {
-    color: #2c3e50;
-    margin-bottom: 20px;
-    font-size: 2rem;
-    font-weight: 600;
-  }
-  
-  /* Login Container */
+/* General body styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #2575fc); /* Matching gradient background from register.css */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Login container styling */
+.login-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 350px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Title styling */
+.login-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Form container styling */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input fields styling */
+.login-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Focus effect on inputs */
+.login-form input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 10px rgba(37, 117, 252, 0.5);
+}
+
+/* Submit button styling */
+.login-form input[type="submit"] {
+  background-color: #2575fc;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effect on submit button */
+.login-form input[type="submit"]:hover {
+  background-color: #1d62d6;
+}
+
+/* Extra links container */
+.login-extra p {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Link style for forgot password */
+.login-extra a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on forgot password link */
+.login-extra a:hover {
+  color: #1d62d6;
+}
+
+/* Bottom links (register, etc.) */
+.login-links p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 20px;
+}
+
+/* Link style for registration */
+.login-links a {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Hover effect on registration link */
+.login-links a:hover {
+  color: #1d62d6;
+}
+
+/* Message container (if any messages appear) */
+.message-container {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9dada;
+  color: #d9534f;
+  border-radius: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
   .login-container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
-    margin-top: 20px;
+      width: 90%;
+      padding: 30px;
   }
-  
-  /* Login Form */
-  .login-form {
-    width: 100%;
+
+  .login-title {
+      font-size: 24px;
   }
-  
-  .login-form input[type="text"],
-  .login-form input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+
+  .login-form input {
+      font-size: 14px;
   }
-  
-  .login-form input[type="text"]:focus,
-  .login-form input[type="password"]:focus {
-    border-color: #2980b9;
-    outline: none;
-  }
-  
+
   .login-form input[type="submit"] {
-    background-color: #2980b9;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    font-size: 1rem;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+      font-size: 14px;
+      padding: 12px;
   }
-  
-  .login-form input[type="submit"]:hover {
-    background-color: #3498db;
-  }
-  
-  /* Extra Links and Information */
-  .login-extra p,
-  .login-links p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  
-  .login-extra a,
-  .login-links a {
-    color: #2980b9;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  .login-extra a:hover,
-  .login-links a:hover {
-    color: #3498db;
-  }
-  
-  /* Message Container */
-  .message-container {
-    margin-top: 20px;
-    background-color: #f39c12;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-  }
-  
-  .message {
-    font-size: 1rem;
-    font-weight: bold;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    body {
-      padding: 10px;
-    }
-  
-    .login-container {
-      padding: 20px;
-      max-width: 90%;
-    }
-  
-    h1 {
-      font-size: 1.8rem;
-    }
-  
-    .login-form input[type="text"],
-    .login-form input[type="password"],
-    .login-form input[type="submit"] {
-      padding: 10px;
-      font-size: 1rem;
-    }
-  
-    .login-extra p,
-    .login-links p {
-      font-size: 0.85rem;
-    }
-  }
-  
+}

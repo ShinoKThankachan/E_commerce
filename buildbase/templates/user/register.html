@@ -16,14 +16,32 @@
             {% csrf_token %}
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confpassword" placeholder="Confirm Password" required>
+            <input type="password" name="password" id="password" placeholder="Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"
+                title="Password must be at least 8 characters, include uppercase, lowercase, number, and special character."
+                required>
+
+            <input type="password" name="confpassword" id="confpassword" placeholder="Confirm Password" required>
+
             <input type="submit" value="Register" id="btn">
+
         </form>
         <div class="register-links">
             <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
         </div>
     </div>
+    <script>
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confPassword = document.getElementById("confpassword").value;
+        
+            if (password !== confPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+        </script>
 </body>
 
 </html>

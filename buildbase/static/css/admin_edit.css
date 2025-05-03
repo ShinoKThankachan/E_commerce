@@ -1,0 +1,113 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f8;
+    color: #333;
+    padding: 40px 20px;
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    color: #1e1e2f;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Form Container */
+form {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Django Form Elements */
+form p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #1e1e2f;
+}
+
+form input[type="text"],
+form input[type="number"],
+form input[type="file"],
+form textarea,
+form select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: #ff9f00;
+    outline: none;
+}
+
+/* Submit Button */
+button[type="submit"] {
+    background-color: #ff9f00;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #e68a00;
+}
+
+/* Back Link */
+p a {
+    display: block;
+    text-align: center;
+    color: #1e1e2f;
+    margin-top: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+p a:hover {
+    color: #ff9f00;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+    }
+}
